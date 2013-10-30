@@ -4,12 +4,10 @@
  */
 function lightcron_drush_command() {
   $items = array();
-
-  // The 'make-me-a-sandwich' command
   $items['run-cron-hooks'] = array(
-    'description' => "Run a cron hook for specific module or set of modules",
+    'description' => "Run a cron hook for a specific module or set of modules",
     'arguments' => array(
-      'modules' => 'The modules to check for cron hooks',
+      'modules' => 'The modules that have the cron hooks you want to execute',
     ),
     'examples' => array(
       'drush rch scheduler' => 'Run the scheduler cron hook',
@@ -18,7 +16,6 @@ function lightcron_drush_command() {
     'aliases' => array('rch'),
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
-
   return $items;
 }
 
@@ -55,7 +52,7 @@ function drush_lightcron_run_cron_hooks() {
 }
 
 /**
- * Sanitize user provided arguments to several pm commands.
+ * Sanitize user provided arguments
  *
  * Return an array of arguments off a space and/or comma separated values.
  *
